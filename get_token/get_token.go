@@ -34,7 +34,7 @@ func (models GetAccessTokenModels) GetAccessToken() (ResGetAccessTokenModels, er
 	readRes, _ := io.ReadAll(resp.Body)
 	decodeErr := json.Unmarshal(readRes, &resModel)
 	resp.Body.Close()
-
+	// fmt.Println(string(readRes))
 	if decodeErr != nil {
 		log.Fatal("error get token")
 		return resModel, decodeErr
